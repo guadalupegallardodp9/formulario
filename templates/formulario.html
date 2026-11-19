@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            mi formulario AGH
+        </title>
+    </head>
+    <body>
+        <h1>Registro de contactos</h1>
+
+        <form action="/guardar" method="POST" enctype="multipart/form-data">
+        <table border="2">
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" name="nombre" required></td>
+            </tr>
+            <tr>
+                <td>Teléfono:</td>
+                <td><input type="tel" name="tel" required></td>
+            </tr>
+            <tr>
+                <td>Correo:</td>
+                <td><input type="email" name="correo" required></td>
+            </tr>
+            <tr>
+				<td>Género</td>
+				<td>
+					Hombre: <input type=radio name="genero" value="M"><br>
+					Mujer: <input type=radio name="genero" value="F">
+                </td>
+			</tr>
+            <tr>
+				<td>Colores Favoritos</TD>
+				<td>
+					Azul: <INPUT type=checkbox name="colores" value="azul"><br>
+					Negro: <INPUT type=checkbox name="colores" value="negro"><br>
+					Rojo: <INPUT type=checkbox name="colores" value="rojo"><br>
+					Rosa: <INPUT type=checkbox name="colores" value="rosa"><br>
+					Verde: <INPUT type=checkbox name="colores" value="verde"><br>
+					Amarillo: <INPUT type=checkbox name="colores" value="amarillo">
+                </td>
+            </tr>
+
+            <tr>
+				<td>Ocupación</td>
+				<td>
+					<select name="ocupacion">
+						<option VALUE="profesor">Profesor</OPTION>
+						<option VALUE="estudiante">Estudiante</OPTION>
+						<option VALUE="ingeniero">Ingeniero</OPTION>
+						<option VALUE="jubilado">Jubilado</OPTION>
+						<option VALUE="otro">Otro</OPTION>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Foto:</td>
+                <td><input type="file" name="imagen" accept="image/*" required></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><input type="submit" name="enviar" value="Enviar"></td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

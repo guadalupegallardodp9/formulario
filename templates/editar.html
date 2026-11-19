@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            mi formulario AGH
+        </title>
+    </head>
+    <body>
+        <h1>Registro de contactos</h1>
+
+        <form action="/editar/{{ usuario['id']}}" method="POST" enctype="multipart/form-data" >
+        <table border="2">
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" name="nombre" required value="{{ usuario['nombre']}}"></td>
+            </tr>
+            <tr>
+                <td>Teléfono:</td>
+                <td><input type="tel" name="tel" value="{{ usuario['telefono']}}" required></td>
+            </tr>
+            <tr>
+                <td>Correo:</td>
+                <td><input type="email" name="correo" value="{{ usuario['correo']}}" required></td>
+            </tr>
+            <tr>
+				<td>Género</td>
+				<td>
+					Hombre: <input type=radio name="genero" value="M" {% if usuario['genero']=='M' %} checked {% endif %}><br>
+					Mujer: <input type=radio name="genero" value="F" {% if usuario['genero']=='F' %} checked {% endif %}>
+                </td>
+			</tr>
+            <tr>
+				<td>Colores Favoritos</TD>
+				<td>
+					Azul: <INPUT type=checkbox name="colores" value="azul" {% if 'azul' in usuario['colores'] %} checked {% endif %} ><br>
+					Negro: <INPUT type=checkbox name="colores" value="negro" {% if 'negro' in usuario['colores'] %} checked {% endif %}><br>
+					Rojo: <INPUT type=checkbox name="colores" value="rojo" {% if 'rojo' in usuario['colores'] %} checked {% endif %}><br>
+					Rosa: <INPUT type=checkbox name="colores" value="rosa" {% if 'rosa' in usuario['colores'] %} checked {% endif %}><br>
+					Verde: <INPUT type=checkbox name="colores" value="verde" {% if 'verde' in usuario['colores'] %} checked {% endif %}><br>
+					Amarillo: <INPUT type=checkbox name="colores" value="amarillo" {% if 'amarillo' in usuario['colores'] %} checked {% endif %}>
+                </td>
+            </tr>
+
+            <tr>
+				<td>Ocupación</td>
+				<td>
+					<select name="ocupacion">
+						<option VALUE="profesor" {% if usuario['ocupacion']=='profesor' %} selected {% endif %}>Profesor</OPTION>
+						<option VALUE="estudiante" {% if usuario['ocupacion']=='estudiante' %} selected {% endif %}>Estudiante</OPTION>
+						<option VALUE="ingeniero" {% if usuario['ocupacion']=='ingeniero' %} selected {% endif %}>Ingeniero</OPTION>
+						<option VALUE="jubilado" {% if usuario['ocupacion']=='jubilado' %} selected {% endif %}>Jubilado</OPTION>
+						<option VALUE="otro" {% if usuario['ocupacion']=='otro' %} selected {% endif %}>Otro</OPTION>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Foto:</td>
+                
+                <td><img src="{{ url_for('static', filename='imagenes/'+ usuario['imagen'])}}" alt="imagen de usuario">
+                    <input type="file" name="imagen" accept="image/*"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><input type="submit" name="cambios" value="Guardar cambios" onsubmit="return confirm('¿Estas seguro que deseas guardar los cambios?');"><input type="button" name="cancelar" value="cancelar" onclick="window.location.href='/mostrar';"></td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

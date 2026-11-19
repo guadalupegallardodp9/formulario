@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            mi formulario AGH
+        </title>
+    </head>
+    <body>
+        <h1>Registro de contactos</h1>
+
+        
+        <table border="2">
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Teléfono</td>
+                <td>Correo</td>
+                <td>Género</td>
+                <td>Colores</td>
+                <td>Ocupación</td>
+                <td>Foto</td>
+            </tr>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario['id']}}</td>
+                <td>{{ usuario['nombre']}}</td>
+                <td>{{ usuario['telefono']}}</td>
+                <td>{{ usuario['correo']}}</td>
+                <td>{{ usuario['genero']}}</td>
+                <td>{{ usuario['colores']}}</td>
+                <td>{{ usuario['ocupacion']}}</td>
+                <td><img src="{{ url_for('static', filename='imagenes/'+ usuario['imagen'])}}" alt="imagen de usuario"></td>
+                <td>
+                    <form action="{{ url_for('editar', id=usuario['id'])}}" method="GET">
+                        <input type="submit" name="editar" value="Editar">
+                    </form>
+                    <form  action="{{ url_for('eliminar', id=usuario['id'])}}" method="GET" onsubmit="return confirm('¿Estas seguro que deseas eliminar el registro?');">
+                        <input type="submit" name="eliminar" value="Eliminar">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+
+            
+        </table>
+        
+    </body>
+</html>
