@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from basedatos import crear_tabla, guardar_usuario, mostrar_usuario,buscar_usuario, editar_usuario, eliminar_usuario
 import os, uuid
 app=Flask(__name__)
-
+#este es otro comentario
 
 #donde se guardaran las imagenes
 CARPETA_IMAGENES=os.path.join(app.root_path, "static", "imagenes")
